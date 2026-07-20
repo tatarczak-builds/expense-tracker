@@ -17,9 +17,9 @@ def add_expense(expenses):
         print(f"Expense '{name}' of amount {amount} added.")
         print()
 
-        another = input("Add another expense? (y/n): ")
+        another = input("Add another expense? (y/n): ").strip().lower()
 
-        if another != "y":
+        if another not in ("y", "yes"):
             break
 
 

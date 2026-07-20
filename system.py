@@ -1,4 +1,5 @@
 from functions import (
+    show_menu,
     add_expense,
     show_expenses,
     total_expenses,
@@ -9,13 +10,7 @@ expenses = []
 
 
 while True:
-    print("=========== Menu ===========")
-    print()
-    print("1. Add expense")
-    print("2. Remove an expense")
-    print("3. Show expenses")
-    print("4. Show total expenses")
-    print("5. Exit")
+    show_menu()
 
     try:
         choice = int(input("Enter your choice: "))
