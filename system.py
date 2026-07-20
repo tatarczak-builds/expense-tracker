@@ -1,29 +1,46 @@
+from functions import (
+    add_expense,
+    show_expenses,
+    total_expenses,
+    remove_expense,
+)
 
 expenses = []
 
+
 while True:
     print("=========== Menu ===========")
+    print()
     print("1. Add expense")
-    print("2. Show expenses")
-    print("3. Exit")
+    print("2. Remove an expense")
+    print("3. Show expenses")
     print("4. Show total expenses")
-# int before input to ensure the user enters a valid integer
-    choice = int(input("Enter your choice: "))
+    print("5. Exit")
+
+    try:
+        choice = int(input("Enter your choice: "))
+    except ValueError:
+        print()
+        print("Please enter a valid number.")
+        print()
+        continue
+
     if choice == 1:
-        name = input("Enter expense name: ")
-        amount = float(input("Enter expense amount: "))
-        print(f"Expense '{name}' of amount {amount} added.")
-        expenses.append((name, amount))
+        add_expense(expenses)
+
     elif choice == 2:
-        print("Showing expenses...")
-        for name, amount in expenses:
-            print(f"Expense: {name}, Amount: {amount}")
+        remove_expense(expenses)
+
     elif choice == 3:
+        print("Your expenses:")
+        show_expenses(expenses)
+
+    elif choice == 4:
+        total_expenses(expenses)
+
+    elif choice == 5:
         print("Exiting...")
         break
-    elif choice == 4:
-        total = sum(amount for _, amount in expenses)
-        print(f"Total expenses: {total}")
 
     else:
         print("Invalid choice. Please try again.")
