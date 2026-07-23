@@ -4,9 +4,10 @@ from functions import (
     show_expenses,
     total_expenses,
     remove_expense,
+    load_expenses
 )
 
-expenses = []
+expenses = load_expenses()
 
 
 while True:
@@ -14,6 +15,7 @@ while True:
 
     try:
         choice = int(input("Enter your choice: "))
+        print()
     except ValueError:
         print()
         print("Please enter a valid number.")
